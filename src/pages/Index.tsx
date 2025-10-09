@@ -7,9 +7,9 @@ import Projects from "@/components/Projects";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen bg-background text-foreground">
+    <div className="portfolio-container">
       <Sidebar />
-      <main className="ml-64 flex-1">
+      <main className="main-content">
         <Hero />
         <About />
         <TechStack />

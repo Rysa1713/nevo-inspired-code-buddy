@@ -1,5 +1,3 @@
-import { Card } from "@/components/ui/card";
-
 const TechStack = () => {
   const frontend = [
     { name: "HTML", icon: "🌐" },
@@ -19,32 +17,30 @@ const TechStack = () => {
   ];
 
   return (
-    <section className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-12">My Stack</h2>
-        
-        <div className="mb-12">
-          <h3 className="text-sm font-semibold text-muted-foreground mb-6">FRONTEND</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {frontend.map((tech) => (
-              <Card key={tech.name} className="p-6 flex flex-col items-center justify-center gap-3 hover:border-primary transition-colors cursor-pointer bg-card">
-                <span className="text-4xl">{tech.icon}</span>
-                <span className="text-sm font-medium">{tech.name}</span>
-              </Card>
-            ))}
-          </div>
+    <section className="stack-section">
+      <h2 className="section-title">My Stack</h2>
+      
+      <div className="stack-category">
+        <h3 className="stack-subtitle">FRONTEND</h3>
+        <div className="stack-grid">
+          {frontend.map((tech) => (
+            <div key={tech.name} className="tech-card">
+              <span className="tech-icon">{tech.icon}</span>
+              <span className="tech-name">{tech.name}</span>
+            </div>
+          ))}
         </div>
+      </div>
 
-        <div>
-          <h3 className="text-sm font-semibold text-muted-foreground mb-6">TOOLS</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {tools.map((tool) => (
-              <Card key={tool.name} className="p-6 flex flex-col items-center justify-center gap-3 hover:border-primary transition-colors cursor-pointer bg-card">
-                <span className="text-4xl">{tool.icon}</span>
-                <span className="text-sm font-medium">{tool.name}</span>
-              </Card>
-            ))}
-          </div>
+      <div className="stack-category">
+        <h3 className="stack-subtitle">TOOLS</h3>
+        <div className="tools-grid">
+          {tools.map((tool) => (
+            <div key={tool.name} className="tech-card">
+              <span className="tech-icon">{tool.icon}</span>
+              <span className="tech-name">{tool.name}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

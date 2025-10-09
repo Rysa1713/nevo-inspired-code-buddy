@@ -1,5 +1,3 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 
 const Projects = () => {
@@ -35,41 +33,33 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="min-h-screen py-20 bg-secondary/30">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-12">Projects</h2>
-        
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <Card key={index} className="p-8 hover:border-primary transition-all bg-card group">
-              <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-              <p className="text-muted-foreground mb-6">{project.description}</p>
-              
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-secondary text-sm rounded-md">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="flex gap-4">
-                <Button variant="outline" size="sm" asChild>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Github className="mr-2 h-4 w-4" />
-                    Code
-                  </a>
-                </Button>
-                <Button variant="default" size="sm" asChild>
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Demo
-                  </a>
-                </Button>
-              </div>
-            </Card>
-          ))}
-        </div>
+    <section id="projects" className="projects-section">
+      <h2 className="section-title">Projects</h2>
+      
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div key={index} className="project-card">
+            <h3 className="project-title">{project.title}</h3>
+            <p className="project-description">{project.description}</p>
+            
+            <div className="project-tags">
+              {project.tags.map((tag) => (
+                <span key={tag} className="project-tag">{tag}</span>
+              ))}
+            </div>
+            
+            <div className="project-links">
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link-outline">
+                <Github className="link-icon" />
+                Code
+              </a>
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link-primary">
+                <ExternalLink className="link-icon" />
+                Demo
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
